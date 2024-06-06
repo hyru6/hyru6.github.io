@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        body {
+            background-color: #1773b2;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23089cb4' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .jumbotron {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+           
+        }
+
+        video {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text {
+            position: relative;
+            z-index: 2;
+            color: aquamarine;
+        }
+        table, tr , th , tbody , td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="check_data()">
+    
+
+
+<body>
+    <header>
+        <div class="jumbotron p-5 bg-primary text-white rounded">
+
+            <video src="https://cdn.pixabay.com/video/2023/09/24/182082-867762198_tiny.mp4" autoplay loop muted></video>
+
+            <!--- <img src="https://static.vecteezy.com/system/resources/thumbnails/005/715/816/small_2x/banner-abstract-background-board-for-text-and-message-design-modern-free-vector.jpg" alt=""> -->
+            <div class="header-text ms-5">
+                <h1>Jumbotron Example</h1>
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">HYRU6</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+          <div class="card  mt-5 mx-auto" style="width: 30rem;">
+            <img src="https://img.freepik.com/free-vector/underwater-background-water-surface-ocean-sea_33099-1755.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">STUDENT DATA</h5>
+              <p class="card-text">
+                     
+                 <!-- <form> -->
+                    <div class="mb-3">
+                      <label  class="form-label">Student Name</label>
+                      <input type="text" class="form-control" id="sname" name="sname">
+                       
+                    </div>
+                    <div class="mb-3">
+                      <label  class="form-label">Phone Number</label>
+                      <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3 ">
+                        <label  class="form-label">Department</label>
+                        <select class="form-select" id="dept" name="dept" >
+                            <option selected>Please Select Item</option>
+                            <option value="แผนกช่างยนต์">แผนกช่างยนต์</option>
+                            <option value="แผนกคอมพิวเตอร์">แผนกคอมพิวเตอร์</option>
+                            <option value="แผนกเทคโนโลยีสารสนเทศ">แผนกเทคโนโลยีสารสนเทศ</option>
+
+                          </select>
+                      
+                      
+                    </div>
+                    <button type="submit" class="btn btn-outline-success w-25" onclick = "click_submit()">Submit</button>
+                  
+                    <button type="reset" class="btn btn-outline-danger w-25" onclick="click_reset()">Reset</button>
+                  <!-- </form> -->
+                
+
+              </p>
+              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              <p id = "output1"></p>
+              <p id = "output2"></p>
+              <p id = "output3"></p>
+              <p id = "output4"></p>
+              <br><br>
+              <table  id = "table_student" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Dept</th>
+                </tr>
+            </thead>
+            <tbody>
+                 
+            </tbody>
+           </table>
+           <br><br><br><br><br><br><br>
+            </div>
+          </div>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+        <script>
+            let sname = []
+            let phone = []
+            let dept = []
+           
+            function click_submit() {
+                if (document.getElementById('sname').value == '' ||
+                    document.getElementById('phone').value == '' ||
+                    document.getElementById('dept').value == 'Please Select Item'
+                ) {
+                    alert('กรุณาป้อนข้อมูลให้ครบถ้วน')
+                } else{
+
+                sname.push(document.getElementById('sname').value)
+                phone.push(document.getElementById('phone').value)
+                dept.push(document.getElementById('dept').value)
+
+               
+               localStorage.setItem('sname' , JSON.stringify(sname))
+               localStorage.setItem('phone' , JSON.stringify(phone))
+               localStorage.setItem('dept' , JSON.stringify(dept))
+
+               document.getElementById('sname').value = null
+               document.getElementById('phone').value = null
+               document.getElementById('dept').selectIndx = 0
+
+               alert('บันทึกข้อมูลเรียบร้อยแล้ว')
+
+                }
+              
+            }
+
+            function click_reset(){
+                document.getElementById('sname').value = null
+                document.getElementById('phone').value = null
+                document.getElementById('dept').selectIndx = 0
+            }
+
+            function check_data() {
+
+                sname = JSON.parse(localStorage.getItem('sname'))
+                phone = JSON.parse(localStorage.getItem('phone'))
+                dept  = JSON.parse(localStorage.getItem('dept'))
+
+                if (sname == null) {
+                    sname - []
+                }
+                if (phone == null) {
+                    phone = []
+                }
+                if (dept == null) {
+                    dept = []
+                }
+
+                //document.getElementById('output1').innerHTML = sname
+                //document.getElementById('output2').innerHTML = phone
+                //document.getElementById('output3').innerHTML = dept
+                
+                let table = document.querySelector('#table_student tbody') 
+                let row = 99;
+                let column = 99;
+                for (let i = 0; i < sname.length; i++) {
+                  row = document.createElement('tr')
+                  column = document.createElement('td')
+                  column.textContent = sname[i]
+                  row.appendChild(column)
+                  column = document.createElement('t')
+                  column.textContent = phone[i]
+                  row.appendChild(column)
+                  column = document.createElement('td')
+                  column.textContent = dept[i]
+                  row.appendChild(column)
+                  table.appendChild(row)
+                  
+                }
+         
+            }
+      </script>
+</body>
+
+</html>
